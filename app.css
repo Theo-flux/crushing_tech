@@ -1,0 +1,170 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    /* grey */
+    --grey-50: #656266;
+    --grey-100: #616161;
+    --grey-200: #322F33;
+    --grey-300: #1C181D;
+
+    /* fontColor */
+    --fontColor-light: #E3E3E3;
+    --fontColor-mid: #616161;
+    --fontColor-dark: #475467;
+    
+    /* strokes */
+    --strokes-s50: #EBEBEB;
+    --strokes-s100: #00000007;
+    --strokes-s200: #FFFFFF20;
+
+    /* states */
+    --states-hover: #F7F7F7;
+    --states-pressed: #F0F0F0;
+    --states-focused: #005BD3;
+
+    /* plain */
+    --white: #FFFFFF;
+    --background: #F1F1F1;
+
+    --mobile-size: 767px;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Inter', sans-serif;
+}
+
+/* nav */
+
+nav {
+    background-color: var(--grey-300);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+    .desktop_logo {
+      display: none;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .mobile_logo {
+      display: none;
+    }
+}
+
+.search_input_pod {
+    background-color: var(--strokes-s200);
+    width: 200px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--grey-100);
+    border-radius: 8px;
+    height: 32px;
+    padding: 0rem 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .search_input_pod {
+        width: 480px;
+    }
+}
+
+.search_input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-left: 0.15rem;
+    color: #B5B5B5;
+}
+
+.others {
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+
+.others .notification {
+    cursor: pointer;
+    width: 32px;
+    height: 100%;
+    background-color: var(--grey-200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-right: 0.5rem;
+}
+
+.others .notification:hover,
+.others .account:hover {
+    background-color: var(--fontColor-mid);
+}
+
+.others .notification:focus-within,
+.others .account:focus-within {
+    outline: #005BD3;
+}
+
+.others .account {
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--fontColor-light);
+    background-color: var(--grey-200);
+    border-radius: 8px;
+    padding: 0 0.2rem;
+}
+
+.others .account p {
+    color: var(--font-light, #E3E3E3);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    margin-right: 0.35rem;
+}
+
+.others .account h6 {
+    height: 80%;
+    display: flex;
+    padding: 9px 5px 10px 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background: #36FBA1;
+    color: rgba(0, 0, 0, 0.40);
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+}
+
+@media screen and (max-width: 767px) {
+    .others .account {
+        background-color: transparent;
+        border-radius: 0px;
+        padding: 0rem;
+    }
+
+
+    .others .account p {
+      display: none;
+    }
+
+    .others .account h6 {
+        height: 100%;
+    }
+}
