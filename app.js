@@ -67,5 +67,3 @@ setupGuideTogglerEl.addEventListener("click", () => {
     setupGuideArrowEl.style.rotate = "180deg";
   }
 });
-
-
