@@ -45,6 +45,48 @@ button {
   outline: none;
 }
 
+.primary_btn {
+  display: inline-flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 8px;
+  color: var(--fontColor-light);
+  border-radius: 6px;
+  border-top: 1.5px solid var(--stroke-light-100, rgba(255, 255, 255, 0.2));
+  border-right: 1.5px solid var(--stroke-light-100, rgba(255, 255, 255, 0.2));
+  border-left: 1.5px solid var(--stroke-light-100, rgba(255, 255, 255, 0.2));
+  background: #404040;
+  box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333,
+    0px 2px 0px 0px #000;
+}
+
+.primary_btn:hover {
+  background: #2a2a2a;
+}
+
+.primary_btn:focus {
+  box-shadow: 0px 0px 0px 5px #005bd3, 0px 0px 0px 3px #fff,
+    0px 0px 0px 1.5px #333;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li a {
+  color: var(--font-dark, #303030);
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+button:focus {
+  box-shadow: 0px 0px 0px 3px #005bd3, 0px 0px 0px 1px #fff,
+    0px -1px 0px 0px #b5b5b5 inset;
+}
+
 /* nav */
 
 nav {
@@ -83,6 +125,10 @@ nav {
   border: 1px solid var(--white);
 }
 
+.search_input_pod:focus-within {
+  border: 1px solid var(--white);
+}
+
 @media screen and (min-width: 768px) {
   .search_input_pod {
     width: 480px;
@@ -102,12 +148,12 @@ nav {
 .others {
   display: flex;
   align-items: center;
-  height: 32px;
+  height: 28px;
 }
 
 .others .notification {
   cursor: pointer;
-  width: 32px;
+  width: 28px;
   height: 100%;
   background-color: var(--grey-200);
   display: flex;
@@ -124,7 +170,7 @@ nav {
 
 .others .notification:focus-within,
 .others .account:focus-within {
-  outline: #005bd3;
+  border: 1px solid var(--states-focused);
 }
 
 .others .account {
@@ -148,8 +194,9 @@ nav {
   margin-right: 0.35rem;
 }
 
-.others .account h6 {
-  height: 80%;
+.badge {
+  width: 28px;
+  height: 85%;
   display: flex;
   padding: 9px 5px 10px 5px;
   justify-content: center;
@@ -179,7 +226,7 @@ nav {
     display: none;
   }
 
-  .others .account h6 {
+  .badge {
     height: 100%;
   }
 }
@@ -198,7 +245,6 @@ nav {
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-  padding: 1rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -211,8 +257,105 @@ nav {
   display: none;
 }
 
+.acct_dropdown_top {
+  width: 100%;
+  padding: 0.15rem 0.5rem;
+}
+
+.acct_dropdown_top_top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0.35rem;
+  border-radius: 8px;
+  background-color: var(--states-hover);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.acct_dropdown_top .acct_dropdown_top_left p {
+  margin-left: 0.25rem;
+  color: var(--font-dark, #303030);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.acct_dropdown_top_left {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.acct_dropdown_store {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.35rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.acct_dropdown_store:hover {
+  background-color: var(--states-hover);
+}
+
+.acct_dropdown_store p {
+  color: var(--font-dark, #303030);
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.acct_dropdown_middle {
+  width: 100%;
+  border-top: 1px solid var(--strokes-s100);
+  border-bottom: 1px solid var(--strokes-s100);
+  padding: 0.35rem 0.5rem;
+}
+
+.acct_dropdown_middle li,
+.acct_dropdown_bottom li {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.acct_dropdown_middle li:hover,
+.acct_dropdown_bottom li:hover {
+  background-color: var(--states-hover);
+}
+
+.acct_dropdown_bottom {
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+}
+
+.acct_dropdown_bottom li a p:first-of-type {
+  color: var(--font-dark, #303030);
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.acct_dropdown_bottom li a p:last-of-type {
+  color: var(--grey-grey-100, var(--font-mid-2, #616161));
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+
 .alert_dropdown {
   display: none;
+  padding: 0.35rem 0.5rem;
 }
 
 .alert_dropdown_top {
@@ -223,7 +366,13 @@ nav {
   margin-bottom: 0.75rem;
 }
 
+.alert_dropdown_top div {
+  display: flex;
+  align-items: center;
+}
+
 .alert_dropdown_top p {
+  width: 100%;
   color: var(--font-dark, #303030);
   font-family: Inter;
   font-size: 14px;
@@ -239,15 +388,22 @@ nav {
 .alert_dropdown_check_svg,
 .alert_dropdown_funnel_svg {
   cursor: pointer;
+  border-radius: 6px;
 }
 
 .alert_dropdown_check_svg:hover,
 .alert_dropdown_funnel_svg:hover {
   background-color: var(--states-hover);
-  border-radius: 6px;
+}
+
+.alert_dropdown_check_svg:focus-within,
+.alert_dropdown_funnel_svg:focus-within {
+  background-color: var(--states-focused);
 }
 
 .alert_dropdown_desc {
+  width: 100%;
+  text-align: center;
   background-color: var(--states-hover);
   padding: 1rem;
   color: var(--fontColor-mid);
@@ -361,10 +517,12 @@ nav {
 }
 
 .setup_guide_wrapper .setup_guide_top .setup_guide_toggler {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
+  height: auto;
 }
 
 .setup_guide_wrapper .setup_guide_top .setup_guide_toggler p {
@@ -384,6 +542,20 @@ nav {
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
+}
+
+.setup_guide_bottom {
+  transition: all 0.3s;
+  height: 200px;
+}
+
+.setupGuide_arrow {
+  transition: all 0.3s;
+  border-radius: 6px;
+}
+
+.setupGuide_arrow:hover {
+  background-color: var(--states-hover);
 }
 
 .progress {
@@ -421,4 +593,164 @@ nav {
   width: 14.4%;
   height: 100%;
   background-color: var(--grey-300);
+}
+
+.check_wrapper {
+  width: 24px;
+  height: 24px;
+}
+
+.check_container {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  border: 2px dashed var();
+}
+
+.input_check {
+  display: none;
+}
+
+.checkmark {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 2px dashed #8a8a8a;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg_check path {
+  fill: transparent;
+}
+
+.checkmark:hover {
+  border: 2px solid #8a8a8a;
+  background-color: var(--states-pressed);
+}
+
+.input_check:checked ~ .checkmark {
+  border: none;
+  animation: myCheckAnimation 2s forwards;
+}
+
+.input_check:checked ~ .checkmark .svg_check path {
+  fill: var(--white);
+}
+
+@keyframes myCheckAnimation {
+  0% {
+    background-color: #8a8a8a;
+  }
+
+  20% {
+    background-color: transparent;
+    border: 2px solid var(--states-pressed);
+    border-top: 2px solid var(--grey-300);
+    rotate: 0deg;
+  }
+
+  40% {
+    background-color: transparent;
+    border: 2px solid var(--states-pressed);
+    border-top: 2px solid var(--grey-300);
+    rotate: -180deg;
+  }
+
+  60% {
+    background-color: transparent;
+    border: 2px solid var(--states-pressed);
+    border-top: 2px solid var(--grey-300);
+    rotate: -300deg;
+  }
+
+  80% {
+    background-color: var(--grey-100);
+    scale: 0.75;
+  }
+
+  90% {
+    background-color: var(--grey-200);
+    scale: 0.9;
+  }
+
+  100% {
+    background-color: var(--grey-300);
+    scale: 1;
+  }
+}
+
+.personalized_guides {
+  background-color: #f3f3f3;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.personalized_guides_inner {
+  display: flex;
+  align-items: center;
+}
+
+.personalized_guides_inner p {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  color: var(--font-dark, #303030);
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.personalized_guides_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.personalized_guides_details img {
+  display: none;
+}
+
+.personalized_guides_details_info {
+  width: 326px;
+  /* padding-left: 1.5rem; */
+  scale: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+  .personalized_guides_details_info {
+    width: 480px;
+    padding-left: 2rem;
+    scale: 1;
+  }
+
+  .personalized_guides_details img {
+    display: block;
+  }
+}
+
+.personalized_guides_details_info p {
+  color: var(--font-mid-2, #616161);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.personalized_guides_details_info p a {
+  color: var(--states-focused, #005bd3);
+  text-decoration: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+.personalized_guides_details_info button {
+  margin-top: 1rem;
 }

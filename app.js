@@ -6,6 +6,9 @@ const alertDropdownEl = document.getElementById("alertDropdownEl");
 const toastEl = document.getElementById("toastEl");
 const toastMobileCloseEl = document.getElementById("toastMobileCloseEl");
 const toastDesktopCloseEl = document.getElementById("toastDesktopCloseEl");
+const setupGuideTogglerEl = document.getElementById("setupGuideTogglerEl");
+const setupGuideBottomEl = document.getElementById("setupGuideBottomEl");
+const setupGuideArrowEl = document.getElementById("setupGuideArrowEl");
 
 const handleCloseToast = () => {
   toastEl.style.display = "none";
@@ -47,3 +50,22 @@ document.addEventListener("click", (e) => {
     alertDropdownEl.style.display = "none";
   }
 });
+
+setupGuideTogglerEl.addEventListener("click", () => {
+  const setupGuideBtmHeight =
+    window.getComputedStyle(setupGuideBottomEl).height;
+
+  if (setupGuideBtmHeight === "200px") {
+    setupGuideBottomEl.style.height = "0px";
+    setupGuideBottomEl.style.visibility = "hidden";
+    setupGuideBottomEl.style.opacity = "0";
+    setupGuideArrowEl.style.rotate = "0deg";
+  } else {
+    setupGuideBottomEl.style.height = "200px";
+    setupGuideBottomEl.style.visibility = "visible";
+    setupGuideBottomEl.style.opacity = "1";
+    setupGuideArrowEl.style.rotate = "180deg";
+  }
+});
+
+
