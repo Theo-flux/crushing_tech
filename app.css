@@ -38,9 +38,17 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
 /* nav */
 
 nav {
+    position: relative;
     background-color: var(--grey-300);
     padding: 1rem;
     display: flex;
@@ -69,6 +77,10 @@ nav {
     border-radius: 8px;
     height: 32px;
     padding: 0rem 0.5rem;
+}
+
+.search_input_pod:hover {
+    border: 1px solid var(--white);
 }
 
 @media screen and (min-width: 768px) {
@@ -167,4 +179,190 @@ nav {
     .others .account h6 {
         height: 100%;
     }
+}
+
+.dropdown {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: var(--white);
+    width: 320px;
+    border-radius: 14px;
+    border: 1px solid var(--strokes-s50);
+    background: var(--White);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+    display: none;
+    width: 320px;
+    padding: 6px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+
+.wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.toast {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--grey-300);
+    color: var(--white);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .toast {
+        padding: 12px 8px 12px 16px;
+        border-radius: 8px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.toast .toast_action {
+    display: flex;
+    align-items: center;
+}
+
+.toast .toast_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toast .toast_info p {
+    width: 80%;
+}
+
+.toast .toast_info {
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .toast .toast_info .toast_mobile_close {
+        display: none;
+    }
+
+    .toast .toast_info p {
+        width: fit-content;
+    }
+
+    .toast .toast_info {
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .toast .toast_action .toast_desktop_close {
+        display: none;
+    }
+}
+
+.toast .toast_action .toast_btn {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: var(--White, #FFF);
+    box-shadow: 0px -1px 0px 0px #B5B5B5 inset;
+    padding: 6px 12px;
+    margin-right: 0.5rem;
+}
+
+.toast .toast_action .toast_btn:hover {
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: #F7F7F7;
+    box-shadow: 0px -1px 0px 0px #B5B5B5 inset;
+}
+
+.toast .toast_action .toast_btn:focus {
+    background: #F7F7F7;
+    box-shadow: 0px 2px 1.5px 0px #E2E2E2 inset;
+}
+
+.setup_guide_wrapper {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid var(--stroke-s-50, #DBDBDB);
+    background: var(--White, #FFF);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+
+}
+
+@media screen and (min-width: 768px) {
+    .setup_guide_wrapper {
+        border-radius: 18px;
+    }
+}
+
+.setup_guide_wrapper .setup_guide_top .setup_guide_toggler {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.setup_guide_wrapper .setup_guide_top .setup_guide_toggler p {
+    color: var(--font-dark, var(--grey-g-200, #303030));
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+}
+
+.setup_guide_wrapper .setup_guide_top .setup_guide_desc {
+    min-width: 300px;
+    color: var(--font-dark, var(--grey-g-200, #303030));
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.progress {
+    display: flex;
+    margin-top: 0.75rem;
+    justify-content: start;
+    align-items: center;
+}
+
+.progress p {
+    color: var(--font-dark, var(--grey-g-200, #303030));
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.progress .progress_wrapper {
+    margin-left: 1rem;
+}
+
+.progress .progress_wrapper {
+    width: 72px;
+    height: 4px;
+    border-radius: 8px;
+    background-color: #E3E3E3;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.progress .progress_wrapper .progressbar {
+    width: 14.4%;
+    height: 100%;
+    background-color: var(--grey-300);
 }

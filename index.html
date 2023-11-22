@@ -11,7 +11,7 @@
   </head>
   <body>
   
-    <nav>
+    <nav id="navEl'">
         <a href="https://www.shopify.com" target="_blank">
             <img class="desktop_logo" src="https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg" alt="shopify logo"/>
             <img class="mobile_logo" src="https://crushingit.tech/hackathon-assets/shopify-icon.svg" alt="shopify logo"/>
@@ -30,12 +30,60 @@
             </div>
 
 
-            <div class="account">
+            <div id="acctEl" class="account">
                 <p>Davii Collections</p>
                 <h6>DC</h6>
             </div>
         </div>
+
+
+        <div id="dropdownEl" class="dropdown">
+            This is my dropdown
+        </div>
     </nav>
+
+    <section class="wrapper">
+        <div id="toastEl" class="toast">
+            <div class="toast_info">
+                <p>Extend your trial for $1/month for 3 months on select plans.</p>
+                <svg id="toastMobileCloseEl" class="toast_mobile_close" style="cursor: pointer;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.9697 15.0303C14.2626 15.3232 14.7374 15.3232 15.0303 15.0303C15.3232 14.7374 15.3232 14.2626 15.0303 13.9697L11.0607 10L15.0303 6.03033C15.3232 5.73744 15.3232 5.26256 15.0303 4.96967C14.7374 4.67678 14.2626 4.67678 13.9697 4.96967L10 8.93934L6.03033 4.96967C5.73744 4.67678 5.26256 4.67678 4.96967 4.96967C4.67678 5.26256 4.67678 5.73744 4.96967 6.03033L8.93934 10L4.96967 13.9697C4.67678 14.2626 4.67678 14.7374 4.96967 15.0303C5.26256 15.3232 5.73744 15.3232 6.03033 15.0303L10 11.0607L13.9697 15.0303Z" fill="#E3E3E3"/>
+                </svg>
+            </div>
+
+
+            <div class="toast_action">
+                <a href="https://www.shopify.com/pricing" target="_blank">
+                    <button class="toast_btn">Select a plan</button>
+                </a>
+                
+                <svg id="toastDesktopCloseEl" class="toast_desktop_close" style="cursor: pointer;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.9697 15.0303C14.2626 15.3232 14.7374 15.3232 15.0303 15.0303C15.3232 14.7374 15.3232 14.2626 15.0303 13.9697L11.0607 10L15.0303 6.03033C15.3232 5.73744 15.3232 5.26256 15.0303 4.96967C14.7374 4.67678 14.2626 4.67678 13.9697 4.96967L10 8.93934L6.03033 4.96967C5.73744 4.67678 5.26256 4.67678 4.96967 4.96967C4.67678 5.26256 4.67678 5.73744 4.96967 6.03033L8.93934 10L4.96967 13.9697C4.67678 14.2626 4.67678 14.7374 4.96967 15.0303C5.26256 15.3232 5.73744 15.3232 6.03033 15.0303L10 11.0607L13.9697 15.0303Z" fill="#E3E3E3"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="setup_guide_wrapper">
+            <div class="setup_guide_top">
+                <div class="setup_guide_toggler">
+                    <p>Setup guide</p>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.71967 8.46967C6.01256 8.17678 6.48744 8.17678 6.78033 8.46967L10.25 11.9393L13.7197 8.46967C14.0126 8.17678 14.4874 8.17678 14.7803 8.46967C15.0732 8.76256 15.0732 9.23744 14.7803 9.53033L10.7803 13.5303C10.4874 13.8232 10.0126 13.8232 9.71967 13.5303L5.71967 9.53033C5.42678 9.23744 5.42678 8.76256 5.71967 8.46967Z" fill="#4A4A4A"/>
+                    </svg>
+                </div>
+                <p class="setup_guide_desc">Use this personalized guide to get your store up and running.</p>
+
+                <div class="progress">
+                    <p>0 / 5 completed</p>
+                    <div class="progress_wrapper">
+                        <div class="progressbar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="setup_guide_bottom">bottom</div> -->
+        </div>
+    </section>
 
   <script src="./app.js"></script>
   </body>
