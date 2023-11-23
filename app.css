@@ -525,7 +525,7 @@ nav {
   width: 100%;
   padding: 1rem;
   flex-direction: column;
-  gap: 16px;
+  /* gap: 16px; */
   border: 1px solid var(--stroke-s-50, #dbdbdb);
   background: var(--White, #fff);
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
@@ -566,7 +566,7 @@ nav {
 
 .setup_guide_bottom {
   transition: all 0.3s;
-  height: 400px;
+  height: 350px;
 }
 
 .setupGuide_arrow {
@@ -612,11 +612,13 @@ progress[value]::-webkit-progress-bar {
 progress[value]::-webkit-progress-value {
   border-radius: 10em;
   background: var(--grey-300);
+  transition: all 0.5s;
 }
 
 progress[value]::-moz-progress-bar {
   border-radius: 10em;
   background: var(--grey-300);
+  transition: all 0.5s;
 }
 
 .check_wrapper {
@@ -659,7 +661,7 @@ progress[value]::-moz-progress-bar {
 
 .input_check:checked ~ .checkmark {
   border: none;
-  animation: myCheckAnimation 2s forwards;
+  animation: myCheckAnimation 0.75s forwards;
 }
 
 .input_check:checked ~ .checkmark .svg_check path {
@@ -695,26 +697,12 @@ progress[value]::-moz-progress-bar {
     border-top: 2px solid var(--grey-300);
     border-left: 2px solid var(--grey-300);
     border-right: 2px solid var(--grey-300);
-    rotate: -300deg;
-  }
-
-  70% {
-    background-color: transparent;
-    border: 2px solid var(--states-pressed);
-    border-top: 2px solid var(--grey-300);
-    border-left: 2px solid var(--grey-300);
-    border-right: 2px solid var(--grey-300);
     rotate: -360deg;
   }
 
   80% {
     background-color: var(--grey-100);
     scale: 0.75;
-  }
-
-  90% {
-    background-color: var(--grey-200);
-    scale: 0.9;
   }
 
   100% {
@@ -724,7 +712,7 @@ progress[value]::-moz-progress-bar {
 }
 
 .personalized_guides {
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 10px;
 }
 
@@ -744,7 +732,6 @@ progress[value]::-moz-progress-bar {
 }
 
 .personalized_guides_details {
-  transition: all 0.3s;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -759,7 +746,6 @@ progress[value]::-moz-progress-bar {
 
 .personalized_guides_details_info {
   width: 326px;
-  /* padding-left: 1.5rem; */
   scale: 0.8;
 }
 
@@ -801,9 +787,9 @@ progress[value]::-moz-progress-bar {
 }
 
 .expanded_guide_details {
-  transition: all 0.3s;
+  transition: all 0.15s;
   visibility: visible;
-  height: 120px;
+  height: 110px;
   opacity: 1;
 }
 

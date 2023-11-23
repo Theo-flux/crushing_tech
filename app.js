@@ -14,6 +14,7 @@ const progressCountEl = document.getElementById("progressCountEl");
 const inputCheckEls = document.querySelectorAll(".input_check");
 const progressEl = document.getElementById("progressEl");
 const liveElAnnouncer = document.getElementById("liveElAnnouncer");
+const setupWrapperEl = document.querySelector("[role='contentinfo']");
 
 // function to get number of completed setup guides
 const getCompletedGuides = () => {
@@ -90,18 +91,22 @@ setupGuideTogglerEl.addEventListener("click", () => {
   const setupGuideBtmHeight =
     window.getComputedStyle(setupGuideBottomEl).height;
 
-  if (setupGuideBtmHeight === "400px") {
+  console.log(setupGuideBottomEl.clientHeight);
+
+  if (setupGuideBtmHeight === "350px") {
     setupGuideBottomEl.style.height = "0px";
     setupGuideBottomEl.style.visibility = "hidden";
     setupGuideBottomEl.style.opacity = "0";
     setupGuideArrowEl.style.rotate = "-180deg";
     liveElAnnouncer.textContent = "setup guides collapsed";
+    setupWrapperEl.style.gap = '0px'
   } else {
-    setupGuideBottomEl.style.height = "400px";
+    setupGuideBottomEl.style.height = "350px";
     setupGuideBottomEl.style.visibility = "visible";
     setupGuideBottomEl.style.opacity = "1";
     setupGuideArrowEl.style.rotate = "0deg";
     liveElAnnouncer.textContent = "setup guides expanded";
+    setupWrapperEl.style.gap = '16px'
   }
 });
 
