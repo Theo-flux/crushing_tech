@@ -12,21 +12,15 @@ const setupGuideArrowEl = document.getElementById("setupGuideArrowEl");
 const personalizedGuideEls = document.querySelectorAll(".personalized_guides");
 const progressCountEl = document.getElementById("progressCountEl");
 const inputCheckEls = document.querySelectorAll(".input_check");
-let completedGuides = 0;
 
 const getCompletedGuides = () => {
+  let completedGuides = 0;
   inputCheckEls.forEach((element) => {
-    if (element.checked) {
-      completedGuides += 1;
-    } else {
-      completedGuides -= 1;
-    }
+    if (element.checked) completedGuides = completedGuides + 1;
   });
 
-  progressCountEl.innerText = `${completedGuides}/${inputCheckEls.length} completed`;
+  return completedGuides;
 };
-
-console.log(completedGuides);
 
 const handleCloseToast = () => {
   toastEl.style.display = "none";
@@ -123,6 +117,12 @@ personalizedGuideEls.forEach((element, index) => {
       targetPEl.dispatchEvent(clickEvent);
     }
 
-    getCompletedGuides();
+    progressCountEl.innerText = `${getCompletedGuides()}/${
+      inputCheckEls.length
+    } completed`;
   });
 });
+
+progressCountEl.innerText = `${getCompletedGuides()}/${
+  inputCheckEls.length
+} completed`;
