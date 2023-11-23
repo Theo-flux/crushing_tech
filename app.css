@@ -675,6 +675,8 @@ progress[value]::-moz-progress-bar {
     background-color: transparent;
     border: 2px solid var(--states-pressed);
     border-top: 2px solid var(--grey-300);
+    border-left: 2px solid var(--grey-300);
+    border-right: 2px solid var(--grey-300);
     rotate: 0deg;
   }
 
@@ -682,6 +684,8 @@ progress[value]::-moz-progress-bar {
     background-color: transparent;
     border: 2px solid var(--states-pressed);
     border-top: 2px solid var(--grey-300);
+    border-left: 2px solid var(--grey-300);
+    border-right: 2px solid var(--grey-300);
     rotate: -180deg;
   }
 
@@ -689,7 +693,18 @@ progress[value]::-moz-progress-bar {
     background-color: transparent;
     border: 2px solid var(--states-pressed);
     border-top: 2px solid var(--grey-300);
+    border-left: 2px solid var(--grey-300);
+    border-right: 2px solid var(--grey-300);
     rotate: -300deg;
+  }
+
+  70% {
+    background-color: transparent;
+    border: 2px solid var(--states-pressed);
+    border-top: 2px solid var(--grey-300);
+    border-left: 2px solid var(--grey-300);
+    border-right: 2px solid var(--grey-300);
+    rotate: -360deg;
   }
 
   80% {
