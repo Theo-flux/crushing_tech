@@ -546,7 +546,7 @@ nav {
 
 .setup_guide_bottom {
   transition: all 0.3s;
-  height: 200px;
+  height: 400px;
 }
 
 .setupGuide_arrow {
@@ -685,7 +685,6 @@ nav {
 }
 
 .personalized_guides {
-  background-color: #f3f3f3;
   padding: 1rem;
   border-radius: 10px;
 }
@@ -702,12 +701,11 @@ nav {
   font-family: Inter;
   font-size: 13px;
   font-style: normal;
-  font-weight: 600;
   line-height: 140%;
 }
 
 .personalized_guides_details {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
 }
@@ -753,4 +751,16 @@ nav {
 
 .personalized_guides_details_info button {
   margin-top: 1rem;
+}
+
+.expanded_guide {
+  background-color: #f3f3f3;
+}
+
+.expanded_guide_details {
+  display: flex;
+}
+
+.expanded_guide_title {
+  font-weight: 600;
 }
