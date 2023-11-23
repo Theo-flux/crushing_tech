@@ -538,7 +538,6 @@ nav {
 }
 
 .setup_guide_wrapper .setup_guide_top .setup_guide_toggler {
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -546,7 +545,7 @@ nav {
   height: auto;
 }
 
-.setup_guide_wrapper .setup_guide_top .setup_guide_toggler p {
+.setup_guide_wrapper .setup_guide_top .setup_guide_toggler h1 {
   color: var(--font-dark, var(--grey-g-200, #303030));
   font-family: Inter;
   font-size: 14px;
@@ -571,6 +570,7 @@ nav {
 }
 
 .setupGuide_arrow {
+  cursor: pointer;
   transition: all 0.3s;
   border-radius: 6px;
 }
@@ -809,4 +809,16 @@ progress[value]::-moz-progress-bar {
 
 .expanded_guide_title {
   font-weight: 600;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
 }
