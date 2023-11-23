@@ -744,9 +744,13 @@ progress[value]::-moz-progress-bar {
 }
 
 .personalized_guides_details {
-  display: none;
+  transition: all 0.3s;
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  visibility: hidden;
+  height: 0px;
+  opacity: 0;
 }
 
 .personalized_guides_details img {
@@ -797,7 +801,10 @@ progress[value]::-moz-progress-bar {
 }
 
 .expanded_guide_details {
-  display: flex;
+  transition: all 0.3s;
+  visibility: visible;
+  height: 120px;
+  opacity: 1;
 }
 
 .expanded_guide_title {

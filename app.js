@@ -92,12 +92,12 @@ setupGuideTogglerEl.addEventListener("click", () => {
     setupGuideBottomEl.style.height = "0px";
     setupGuideBottomEl.style.visibility = "hidden";
     setupGuideBottomEl.style.opacity = "0";
-    setupGuideArrowEl.style.rotate = "0deg";
+    setupGuideArrowEl.style.rotate = "-180deg";
   } else {
     setupGuideBottomEl.style.height = "400px";
     setupGuideBottomEl.style.visibility = "visible";
     setupGuideBottomEl.style.opacity = "1";
-    setupGuideArrowEl.style.rotate = "180deg";
+    setupGuideArrowEl.style.rotate = "0deg";
   }
 });
 
