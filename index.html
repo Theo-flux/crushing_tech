@@ -56,9 +56,11 @@
         />
       </div>
       <div class="others">
-        <div
-          role="button"
+        <button
           aria-roledescription="notification bell"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="alertDropdownEl"
           id="alertEl"
           class="notification"
         >
@@ -76,11 +78,12 @@
               fill="#E3E3E3"
             />
           </svg>
-        </div>
+        </button>
 
         <div
           role="menu"
           aria-roledescription="notification dropdown menu"
+          aria-labelledby="alertEl"
           id="alertDropdownEl"
           class="dropdown alert_dropdown"
         >
@@ -88,51 +91,55 @@
             <p>Alerts</p>
 
             <div>
-              <svg
-                role="button"
-                aria-roledescription="filter alerts"
-                class="alert_dropdown_funnel_svg"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 6C3 5.58579 3.33579 5.25 3.75 5.25H16.25C16.6642 5.25 17 5.58579 17 6C17 6.41421 16.6642 6.75 16.25 6.75H3.75C3.33579 6.75 3 6.41421 3 6Z"
-                  fill="#616161"
-                />
-                <path
-                  d="M6.75 14C6.75 13.5858 7.08579 13.25 7.5 13.25H12.5C12.9142 13.25 13.25 13.5858 13.25 14C13.25 14.4142 12.9142 14.75 12.5 14.75H7.5C7.08579 14.75 6.75 14.4142 6.75 14Z"
-                  fill="#616161"
-                />
-                <path
-                  d="M5.5 9.25C5.08579 9.25 4.75 9.58579 4.75 10C4.75 10.4142 5.08579 10.75 5.5 10.75H14.5C14.9142 10.75 15.25 10.4142 15.25 10C15.25 9.58579 14.9142 9.25 14.5 9.25H5.5Z"
-                  fill="#616161"
-                />
-              </svg>
+              <button>
+                <svg
+                  role="menuitem"
+                  aria-roledescription="filter alerts"
+                  class="alert_dropdown_funnel_svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 6C3 5.58579 3.33579 5.25 3.75 5.25H16.25C16.6642 5.25 17 5.58579 17 6C17 6.41421 16.6642 6.75 16.25 6.75H3.75C3.33579 6.75 3 6.41421 3 6Z"
+                    fill="#616161"
+                  />
+                  <path
+                    d="M6.75 14C6.75 13.5858 7.08579 13.25 7.5 13.25H12.5C12.9142 13.25 13.25 13.5858 13.25 14C13.25 14.4142 12.9142 14.75 12.5 14.75H7.5C7.08579 14.75 6.75 14.4142 6.75 14Z"
+                    fill="#616161"
+                  />
+                  <path
+                    d="M5.5 9.25C5.08579 9.25 4.75 9.58579 4.75 10C4.75 10.4142 5.08579 10.75 5.5 10.75H14.5C14.9142 10.75 15.25 10.4142 15.25 10C15.25 9.58579 14.9142 9.25 14.5 9.25H5.5Z"
+                    fill="#616161"
+                  />
+                </svg>
+              </button>
 
-              <svg
-                role="button"
-                aria-roledescription="checked alerts"
-                class="alert_dropdown_check_svg"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13.2803 9.03033C13.5732 8.73744 13.5732 8.26256 13.2803 7.96967C12.9874 7.67678 12.5126 7.67678 12.2197 7.96967L9.25 10.9393L8.03033 9.71967C7.73744 9.42678 7.26256 9.42678 6.96967 9.71967C6.67678 10.0126 6.67678 10.4874 6.96967 10.7803L8.71967 12.5303C9.01256 12.8232 9.48744 12.8232 9.78033 12.5303L13.2803 9.03033Z"
-                  fill="#616161"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.5 10C15.5 13.0376 13.0376 15.5 10 15.5C6.96243 15.5 4.5 13.0376 4.5 10C4.5 6.96243 6.96243 4.5 10 4.5C13.0376 4.5 15.5 6.96243 15.5 10Z"
-                  fill="#616161"
-                />
-              </svg>
+              <button>
+                <svg
+                  role="menuitem"
+                  aria-roledescription="checked alerts"
+                  class="alert_dropdown_check_svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.2803 9.03033C13.5732 8.73744 13.5732 8.26256 13.2803 7.96967C12.9874 7.67678 12.5126 7.67678 12.2197 7.96967L9.25 10.9393L8.03033 9.71967C7.73744 9.42678 7.26256 9.42678 6.96967 9.71967C6.67678 10.0126 6.67678 10.4874 6.96967 10.7803L8.71967 12.5303C9.01256 12.8232 9.48744 12.8232 9.78033 12.5303L13.2803 9.03033Z"
+                    fill="#616161"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.5 10C15.5 13.0376 13.0376 15.5 10 15.5C6.96243 15.5 4.5 13.0376 4.5 10C4.5 6.96243 6.96243 4.5 10 4.5C13.0376 4.5 15.5 6.96243 15.5 10Z"
+                    fill="#616161"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -141,26 +148,30 @@
           </p>
         </div>
 
-        <div
+        <button
           role="button"
           aria-roledescription="user account name"
           aria-describedby="click this button to open the drop down"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="dropdownEl"
           id="acctEl"
           class="account"
         >
           <p aria-roledescription="user account name">Davii Collections</p>
           <h6 aria-roledescription="user account acronym" class="badge">DC</h6>
-        </div>
+        </button>
 
         <div
           role="menu"
           aria-roledescription="user account dropdown menu"
+          aria-labelledby="acctEl"
           id="dropdownEl"
           class="dropdown acct_dropdown"
         >
           <div class="acct_dropdown_top">
             <div
-              role="link"
+              role="menuitem"
               aria-roledescription="user account"
               class="acct_dropdown_top_top"
             >
@@ -212,29 +223,46 @@
 
           <ul class="acct_dropdown_middle">
             <li>
-              <a href="https://admin.shopify.com" target="_blank"
+              <a
+                role="menuitem"
+                href="https://admin.shopify.com"
+                target="_blank"
                 >Help Center</a
               >
             </li>
 
             <li>
-              <a href="https://admin.shopify.com" target="_blank">Changelog</a>
+              <a
+                role="menuitem"
+                href="https://admin.shopify.com"
+                target="_blank"
+                >Changelog</a
+              >
             </li>
 
             <li>
-              <a href="https://admin.shopify.com" target="_blank"
+              <a
+                role="menuitem"
+                href="https://admin.shopify.com"
+                target="_blank"
                 >Community forums</a
               >
             </li>
 
             <li>
-              <a href="https://admin.shopify.com" target="_blank"
+              <a
+                role="menuitem"
+                href="https://admin.shopify.com"
+                target="_blank"
                 >Hire a Shopify Partner</a
               >
             </li>
 
             <li>
-              <a href="https://admin.shopify.com" target="_blank"
+              <a
+                role="menuitem"
+                href="https://admin.shopify.com"
+                target="_blank"
                 >Keyboard shortcuts</a
               >
             </li>
@@ -242,20 +270,32 @@
 
           <ul class="acct_dropdown_bottom">
             <li>
-              <a href="https://admin.shopify.com" target="_blank">
+              <a
+                role="menuitem"
+                href="https://admin.shopify.com"
+                target="_blank"
+              >
                 <p>David Micheal</p>
                 <p>davidmicheal@gmail.com</p>
               </a>
             </li>
 
             <li>
-              <a href="https://admin.shopify.com" target="_blank"
+              <a
+                role="menuitem"
+                href="https://admin.shopify.com"
+                target="_blank"
                 >Manage Account</a
               >
             </li>
 
             <li>
-              <a href="https://admin.shopify.com" target="_blank">Log Out</a>
+              <a
+                role="menuitem"
+                href="https://admin.shopify.com"
+                target="_blank"
+                >Log Out</a
+              >
             </li>
           </ul>
         </div>
@@ -295,9 +335,13 @@
         </div>
 
         <div class="toast_action">
-          <a href="https://www.shopify.com/pricing" target="_blank">
-            <button class="toast_btn">Select a plan</button>
-          </a>
+          <a
+            class="toast_btn"
+            role="button"
+            href="https://www.shopify.com/pricing"
+            target="_blank"
+            >Select a plan</a
+          >
 
           <button
             id="toastDesktopCloseEl"
@@ -329,24 +373,26 @@
         <div class="setup_guide_top">
           <div id="setupGuideTogglerEl" class="setup_guide_toggler">
             <h1>Setup guide</h1>
-            <svg
-              role="button"
-              aria-roledescription="click button to expand and collapse setup guide contentinfo"
-              id="setupGuideArrowEl"
-              class="setupGuide_arrow"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M14.5303 12.2803C14.2374 12.5732 13.7626 12.5732 13.4697 12.2803L10 8.81066L6.53033 12.2803C6.23744 12.5732 5.76256 12.5732 5.46967 12.2803C5.17678 11.9874 5.17678 11.5126 5.46967 11.2197L9.46967 7.21967C9.76256 6.92678 10.2374 6.92678 10.5303 7.21967L14.5303 11.2197C14.8232 11.5126 14.8232 11.9874 14.5303 12.2803Z"
-                fill="#4A4A4A"
-              />
-            </svg>
+            <button>
+              <svg
+                role="button"
+                aria-roledescription="click button to expand and collapse setup guide contentinfo"
+                id="setupGuideArrowEl"
+                class="setupGuide_arrow"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M14.5303 12.2803C14.2374 12.5732 13.7626 12.5732 13.4697 12.2803L10 8.81066L6.53033 12.2803C6.23744 12.5732 5.76256 12.5732 5.46967 12.2803C5.17678 11.9874 5.17678 11.5126 5.46967 11.2197L9.46967 7.21967C9.76256 6.92678 10.2374 6.92678 10.5303 7.21967L14.5303 11.2197C14.8232 11.5126 14.8232 11.9874 14.5303 12.2803Z"
+                  fill="#4A4A4A"
+                />
+              </svg>
+            </button>
           </div>
           <p role="doc-subtitle" class="setup_guide_desc">
             Use this personalized guide to get your store up and running.

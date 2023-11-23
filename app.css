@@ -40,6 +40,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #000;
 }
 
 button {
@@ -47,6 +48,10 @@ button {
   border: none;
   background-color: transparent;
   outline: none;
+}
+
+button:focus {
+  box-shadow: 0px 0px 0px 3px var(--states-focused), 0px 0px 0px 1px #000;
 }
 
 .primary_btn {
@@ -69,8 +74,7 @@ button {
 }
 
 .primary_btn:focus {
-  box-shadow: 0px 0px 0px 5px #005bd3, 0px 0px 0px 3px #fff,
-    0px 0px 0px 1.5px #333;
+  box-shadow: 0px 0px 0px 3px var(--states-focused), 0px 0px 0px 1px #000;
 }
 
 .tertiary_btn {
@@ -87,6 +91,7 @@ button {
 
 .tertiary_btn:focus {
   background: #e0e0e0;
+  box-shadow: 0px 0px 0px 3px var(--states-focused), 0px 0px 0px 1px #000;
 }
 
 ul {
@@ -102,13 +107,7 @@ ul li a {
   line-height: 140%;
 }
 
-button:focus {
-  box-shadow: 0px 0px 0px 3px #005bd3, 0px 0px 0px 1px #fff,
-    0px -1px 0px 0px #b5b5b5 inset;
-}
-
 /* nav */
-
 nav {
   position: relative;
   background-color: var(--grey-300);
@@ -517,7 +516,8 @@ nav {
 
 .toast .toast_action .toast_btn:focus {
   background: #f7f7f7;
-  box-shadow: 0px 2px 1.5px 0px #e2e2e2 inset;
+  box-shadow: 0px 0px 0px 3px #005bd3, 0px 0px 0px 1px #fff,
+    0px -1px 0px 0px #b5b5b5 inset;
 }
 
 .setup_guide_wrapper {
