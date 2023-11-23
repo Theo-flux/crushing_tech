@@ -69,6 +69,22 @@ button {
     0px 0px 0px 1.5px #333;
 }
 
+.tertiary_btn {
+  display: inline-flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+}
+
+.tertiary_btn:hover {
+  background: #e7e7e7;
+}
+
+.tertiary_btn:focus {
+  background: #e0e0e0;
+}
+
 ul {
   list-style-type: none;
 }

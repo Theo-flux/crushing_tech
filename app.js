@@ -10,6 +10,23 @@ const setupGuideTogglerEl = document.getElementById("setupGuideTogglerEl");
 const setupGuideBottomEl = document.getElementById("setupGuideBottomEl");
 const setupGuideArrowEl = document.getElementById("setupGuideArrowEl");
 const personalizedGuideEls = document.querySelectorAll(".personalized_guides");
+const progressCountEl = document.getElementById("progressCountEl");
+const inputCheckEls = document.querySelectorAll(".input_check");
+let completedGuides = 0;
+
+const getCompletedGuides = () => {
+  inputCheckEls.forEach((element) => {
+    if (element.checked) {
+      completedGuides += 1;
+    } else {
+      completedGuides -= 1;
+    }
+  });
+
+  progressCountEl.innerText = `${completedGuides}/${inputCheckEls.length} completed`;
+};
+
+console.log(completedGuides);
 
 const handleCloseToast = () => {
   toastEl.style.display = "none";
@@ -55,9 +72,6 @@ document.addEventListener("click", (e) => {
 setupGuideTogglerEl.addEventListener("click", () => {
   const setupGuideBtmHeight =
     window.getComputedStyle(setupGuideBottomEl).height;
-
-  console.log(setupGuideBtmHeight);
-  console.log(setupGuideBottomEl.offsetHeight);
 
   if (setupGuideBtmHeight === "400px") {
     setupGuideBottomEl.style.height = "0px";
@@ -108,5 +122,7 @@ personalizedGuideEls.forEach((element, index) => {
       const clickEvent = new Event("click");
       targetPEl.dispatchEvent(clickEvent);
     }
+
+    getCompletedGuides();
   });
 });
