@@ -251,6 +251,7 @@ nav {
   position: absolute;
   top: 80px;
   right: 18px;
+  z-index: 1;
   background-color: var(--white);
   width: 320px;
   border-radius: 14px;
@@ -605,6 +606,11 @@ progress[value]::-webkit-progress-bar {
 }
 
 progress[value]::-webkit-progress-value {
+  border-radius: 10em;
+  background: var(--grey-300);
+}
+
+progress[value]::-moz-progress-bar {
   border-radius: 10em;
   background: var(--grey-300);
 }

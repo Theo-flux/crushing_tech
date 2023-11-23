@@ -14,6 +14,7 @@ const progressCountEl = document.getElementById("progressCountEl");
 const inputCheckEls = document.querySelectorAll(".input_check");
 const progressEl = document.getElementById("progressEl");
 
+// function to get number of completed setup guides
 const getCompletedGuides = () => {
   let completedGuides = 0;
   inputCheckEls.forEach((element) => {
@@ -23,6 +24,7 @@ const getCompletedGuides = () => {
   return completedGuides;
 };
 
+// function to compute the progress of setup guides
 const computeProgress = () => {
   progressCountEl.innerText = `${getCompletedGuides()}/${
     inputCheckEls.length
@@ -35,14 +37,16 @@ const computeProgress = () => {
   progressEl.innerText = `${percentage}%`;
 };
 
+// function to close trial plan toast
 const handleCloseToast = () => {
   toastEl.style.display = "none";
 };
 
+// event listener for account dropdown
 acctEl.addEventListener("click", (e) => {
   e.stopPropagation();
   const dropdownDisplay = window.getComputedStyle(dropdownEl).display;
-  alertDropdownEl.display = "none";
+  alertDropdownEl.style.display = "none";
 
   if (dropdownDisplay === "none") {
     dropdownEl.style.display = "flex";
@@ -51,6 +55,7 @@ acctEl.addEventListener("click", (e) => {
   }
 });
 
+// event listener for notification/alert dropdown
 alertEl.addEventListener("click", (e) => {
   e.stopPropagation();
   const alertDropdownDisplay = window.getComputedStyle(alertDropdownEl).display;
@@ -63,9 +68,11 @@ alertEl.addEventListener("click", (e) => {
   }
 });
 
+// event listeners for both mobile and desktop trial plan close element
 toastMobileCloseEl.addEventListener("click", handleCloseToast);
 toastDesktopCloseEl.addEventListener("click", handleCloseToast);
 
+// event listener to listen for ouside clicks for dropdowns
 document.addEventListener("click", (e) => {
   if (window.getComputedStyle(dropdownEl).display !== "none") {
     dropdownEl.style.display = "none";
@@ -76,6 +83,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// event listener to handle the toggling of setup guide
 setupGuideTogglerEl.addEventListener("click", () => {
   const setupGuideBtmHeight =
     window.getComputedStyle(setupGuideBottomEl).height;
