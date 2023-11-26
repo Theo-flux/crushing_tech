@@ -107,8 +107,8 @@ ul li a {
   line-height: 140%;
 }
 
-/* nav */
-nav {
+/* header */
+header {
   position: relative;
   background-color: var(--grey-300);
   padding: 1rem;
