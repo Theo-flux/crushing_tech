@@ -3,6 +3,9 @@ const acctEl = document.getElementById("acctEl");
 const alertEl = document.getElementById("alertEl");
 const dropdownEl = document.getElementById("dropdownEl");
 const alertDropdownEl = document.getElementById("alertDropdownEl");
+const dropdownElMenuItemEls = dropdownEl.querySelectorAll("[role='menuitem']");
+const alertElMenuItemEls =
+  alertDropdownEl.querySelectorAll("[role='menuitem']");
 const toastEl = document.getElementById("toastEl");
 const toastMobileCloseEl = document.getElementById("toastMobileCloseEl");
 const toastDesktopCloseEl = document.getElementById("toastDesktopCloseEl");
@@ -53,8 +56,17 @@ acctEl.addEventListener("click", (e) => {
 
   if (dropdownDisplay === "none") {
     dropdownEl.style.display = "flex";
+    dropdownElMenuItemEls.item(0).focus();
   } else {
     dropdownEl.style.display = "none";
+    acctEl.focus();
+  }
+});
+
+dropdownEl.addEventListener("keyup", (event) => {
+  if (event.key === "Escape") {
+    dropdownEl.style.display = "none";
+    acctEl.focus();
   }
 });
 
@@ -66,8 +78,17 @@ alertEl.addEventListener("click", (e) => {
 
   if (alertDropdownDisplay === "none") {
     alertDropdownEl.style.display = "flex";
+    alertElMenuItemEls.item(0).focus();
   } else {
     alertDropdownEl.style.display = "none";
+    alertEl.focus();
+  }
+});
+
+alertDropdownEl.addEventListener("keyup", (event) => {
+  if (event.key === "Escape") {
+    alertDropdownEl.style.display = "none";
+    alertEl.focus();
   }
 });
 
@@ -99,14 +120,14 @@ setupGuideTogglerEl.addEventListener("click", () => {
     setupGuideBottomEl.style.opacity = "0";
     setupGuideArrowEl.style.rotate = "-180deg";
     liveElAnnouncer.textContent = "setup guides collapsed";
-    setupWrapperEl.style.gap = '0px'
+    setupWrapperEl.style.gap = "0px";
   } else {
     setupGuideBottomEl.style.height = "350px";
     setupGuideBottomEl.style.visibility = "visible";
     setupGuideBottomEl.style.opacity = "1";
     setupGuideArrowEl.style.rotate = "0deg";
     liveElAnnouncer.textContent = "setup guides expanded";
-    setupWrapperEl.style.gap = '16px'
+    setupWrapperEl.style.gap = "16px";
   }
 });
 

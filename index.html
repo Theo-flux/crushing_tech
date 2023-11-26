@@ -91,9 +91,8 @@
             <p>Alerts</p>
 
             <div>
-              <button>
+              <button role="menuitem">
                 <svg
-                  role="menuitem"
                   aria-roledescription="filter alerts"
                   class="alert_dropdown_funnel_svg"
                   width="20"
@@ -117,9 +116,8 @@
                 </svg>
               </button>
 
-              <button>
+              <button role="menuitem">
                 <svg
-                  role="menuitem"
                   aria-roledescription="checked alerts"
                   class="alert_dropdown_check_svg"
                   width="20"
@@ -149,7 +147,6 @@
         </div>
 
         <button
-          role="button"
           aria-roledescription="user account name"
           aria-describedby="click this button to open the drop down"
           aria-haspopup="true"
@@ -170,7 +167,7 @@
           class="dropdown acct_dropdown"
         >
           <div class="acct_dropdown_top">
-            <div
+            <button
               role="menuitem"
               aria-roledescription="user account"
               class="acct_dropdown_top_top"
@@ -195,9 +192,10 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </div>
+            </button>
 
             <a
+              role="menuitem"
               aria-roledescription="your account stores"
               class="acct_dropdown_store"
               href="https://admin.shopify.com"
@@ -340,7 +338,7 @@
             role="button"
             href="https://www.shopify.com/pricing"
             target="_blank"
-            >Select a plan</a
+            ><button>Select a plan</button></a
           >
 
           <button
@@ -434,10 +432,25 @@
                   </div>
                 </label>
               </div>
-              <p class="expanded_guide_title">Customize your online store</p>
+              <p
+                id="onlineStoreEl"
+                class="expanded_guide_title"
+                role="button"
+                aria-pressed="false"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="customizeStoreEl"
+              >
+                Customize your online store
+              </p>
             </div>
 
-            <div class="personalized_guides_details expanded_guide_details">
+            <div
+              id="customizeStoreEl"
+              class="personalized_guides_details expanded_guide_details"
+              role="menu"
+              aria-labelledby="onlineStoreEl"
+            >
               <div class="personalized_guides_details_info">
                 <p>
                   Choose a theme and add your logo, colors, and images to
