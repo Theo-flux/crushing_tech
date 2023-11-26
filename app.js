@@ -3,9 +3,8 @@ const acctEl = document.getElementById("acctEl");
 const alertEl = document.getElementById("alertEl");
 const dropdownEl = document.getElementById("dropdownEl");
 const alertDropdownEl = document.getElementById("alertDropdownEl");
-const dropdownElMenuItemEls = dropdownEl.querySelectorAll("[role='menuitem']");
-const alertElMenuItemEls =
-  alertDropdownEl.querySelectorAll("[role='menuitem']");
+const dropdownElMenuItems = dropdownEl.querySelectorAll("[role='menuitem']");
+const alertElMenuItems = alertDropdownEl.querySelectorAll("[role='menuitem']");
 const toastEl = document.getElementById("toastEl");
 const toastMobileCloseEl = document.getElementById("toastMobileCloseEl");
 const toastDesktopCloseEl = document.getElementById("toastDesktopCloseEl");
@@ -18,6 +17,8 @@ const inputCheckEls = document.querySelectorAll(".input_check");
 const progressEl = document.getElementById("progressEl");
 const liveElAnnouncer = document.getElementById("liveElAnnouncer");
 const setupWrapperEl = document.querySelector("[role='contentinfo']");
+
+console.log(dropdownElMenuItems);
 
 // function to get number of completed setup guides
 const getCompletedGuides = () => {
@@ -56,18 +57,71 @@ acctEl.addEventListener("click", (e) => {
 
   if (dropdownDisplay === "none") {
     dropdownEl.style.display = "flex";
-    dropdownElMenuItemEls.item(0).focus();
+    dropdownElMenuItems.item(0).focus();
   } else {
     dropdownEl.style.display = "none";
     acctEl.focus();
   }
 });
 
+// handlehandleDropdownMenuItemKeypress function
+function handleDropdownMenuItemKeypress(event, menuItemIndex) {
+  const key = event.key;
+  const isLast = dropdownElMenuItems.length - 1 === menuItemIndex;
+  const isFirst = menuItemIndex === 0;
+  const nextMenuItem = dropdownElMenuItems.item(menuItemIndex + 1);
+  const prevMenuItem = dropdownElMenuItems.item(menuItemIndex - 1);
+
+  if (key === "ArrowDown" || key === "ArrowLeft") {
+    if (isLast) {
+      dropdownElMenuItems.item(0).focus();
+      return;
+    }
+    nextMenuItem.focus();
+  } else if (key === "ArrowUp" || key === "ArrowRight") {
+    if (isFirst) {
+      dropdownElMenuItems.item(dropdownElMenuItems.length - 1).focus();
+      return;
+    }
+    prevMenuItem.focus();
+  }
+}
+
+// handlehandleDropdownMenuItemKeypress function
+function handleAlertMenuItemKeypress(event, menuItemIndex) {
+  const key = event.key;
+  const isLast = alertElMenuItems.length - 1 === menuItemIndex;
+  const isFirst = menuItemIndex === 0;
+  const nextMenuItem = alertElMenuItems.item(menuItemIndex + 1);
+  const prevMenuItem = alertElMenuItems.item(menuItemIndex - 1);
+
+  if (key === "ArrowDown" || key === "ArrowLeft") {
+    if (isLast) {
+      alertElMenuItems.item(0).focus();
+      return;
+    }
+    nextMenuItem.focus();
+  } else if (key === "ArrowUp" || key === "ArrowRight") {
+    if (isFirst) {
+      alertElMenuItems.item(alertElMenuItems.length - 1).focus();
+      return;
+    }
+    prevMenuItem.focus();
+  }
+}
+
+// event listeners for acct popup
 dropdownEl.addEventListener("keyup", (event) => {
   if (event.key === "Escape") {
     dropdownEl.style.display = "none";
     acctEl.focus();
   }
+});
+
+dropdownElMenuItems.forEach((dropdownMenuItem, idx) => {
+  dropdownMenuItem.addEventListener("keyup", function (event) {
+    handleDropdownMenuItemKeypress(event, idx);
+  });
 });
 
 // event listener for notification/alert dropdown
@@ -78,18 +132,25 @@ alertEl.addEventListener("click", (e) => {
 
   if (alertDropdownDisplay === "none") {
     alertDropdownEl.style.display = "flex";
-    alertElMenuItemEls.item(0).focus();
+    alertElMenuItems.item(0).focus();
   } else {
     alertDropdownEl.style.display = "none";
     alertEl.focus();
   }
 });
 
+// event listeners for alert popup
 alertDropdownEl.addEventListener("keyup", (event) => {
   if (event.key === "Escape") {
     alertDropdownEl.style.display = "none";
     alertEl.focus();
   }
+});
+
+alertElMenuItems.forEach((alertElMenuItem, idx) => {
+  alertElMenuItem.addEventListener("keyup", function (event) {
+    handleAlertMenuItemKeypress(event, idx);
+  });
 });
 
 // event listeners for both mobile and desktop trial plan close element

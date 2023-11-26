@@ -340,9 +340,16 @@ nav {
 
 .acct_dropdown_middle li,
 .acct_dropdown_bottom li {
+  width: 100%;
   cursor: pointer;
-  padding: 0.5rem;
   border-radius: 8px;
+}
+
+.acct_dropdown_middle li a,
+.acct_dropdown_bottom li a {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
 }
 
 .acct_dropdown_middle li:hover,
@@ -399,10 +406,6 @@ nav {
   font-style: normal;
   font-weight: 600;
   line-height: 140%;
-}
-
-.alert_dropdown_funnel_svg {
-  margin-right: 0.5rem;
 }
 
 .alert_dropdown_check_svg,
