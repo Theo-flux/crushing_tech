@@ -58,7 +58,7 @@
       </div>
       <div class="others">
         <button
-          aria-roledescription="notification bell"
+          aria-label="notifications"
           aria-haspopup="true"
           aria-expanded="false"
           aria-controls="alertDropdownEl"
@@ -92,7 +92,7 @@
             <p>Alerts</p>
 
             <div style="display: flex; gap: 5px">
-              <button role="menuitem">
+              <button role="menuitem" aria-label="Davii Collections profile">
                 <svg
                   aria-roledescription="filter alerts"
                   class="alert_dropdown_funnel_svg"
@@ -117,7 +117,7 @@
                 </svg>
               </button>
 
-              <button role="menuitem">
+              <button role="menuitem" aria-label="read notifications">
                 <svg
                   aria-roledescription="checked alerts"
                   class="alert_dropdown_check_svg"
@@ -148,7 +148,7 @@
         </div>
 
         <button
-          aria-roledescription="user account name"
+          aria-label="Davii Collections"
           aria-describedby="click this button to open the drop down"
           aria-haspopup="true"
           aria-expanded="false"
@@ -170,7 +170,7 @@
           <div class="acct_dropdown_top">
             <button
               role="menuitem"
-              aria-roledescription="user account"
+              aria-label="user account"
               class="acct_dropdown_top_top"
             >
               <div class="acct_dropdown_top_left">
@@ -337,6 +337,7 @@
           <a
             class="toast_btn"
             role="button"
+            aria-label="Select a plan"
             href="https://www.shopify.com/pricing"
             target="_blank"
             ><button>Select a plan</button></a
@@ -372,10 +373,10 @@
         <div class="setup_guide_top">
           <div id="setupGuideTogglerEl" class="setup_guide_toggler">
             <h1>Setup guide</h1>
-            <button>
+            <button
+              aria-label="close and open all guides"
+            >
               <svg
-                role="button"
-                aria-roledescription="click button to expand and collapse setup guide contentinfo"
                 id="setupGuideArrowEl"
                 class="setupGuide_arrow"
                 width="20"
@@ -436,7 +437,6 @@
               <p
                 id="onlineStoreEl"
                 class="expanded_guide_title"
-                role="button"
                 aria-pressed="false"
                 aria-haspopup="true"
                 aria-expanded="false"
@@ -463,7 +463,7 @@
                   >
                 </p>
 
-                <button class="primary_btn">Customize theme</button>
+                <button class="primary_btn" aria-label="customize theme">Customize theme</button>
               </div>
 
               <img
@@ -517,10 +517,10 @@
                   >
                 </p>
 
-                <button class="primary_btn" style="margin-right: 3px">
+                <button class="primary_btn" style="margin-right: 3px" aria-label="add product">
                   Add product
                 </button>
-                <button class="tertiary_btn">Import product</button>
+                <button class="tertiary_btn" aria-label="import product">Import product</button>
               </div>
 
               <img
@@ -574,7 +574,7 @@
                   >
                 </p>
 
-                <button class="primary_btn">Add domain</button>
+                <button class="primary_btn" aria-label="add domain">Add domain</button>
               </div>
 
               <img
@@ -628,7 +628,7 @@
                   >
                 </p>
 
-                <button class="primary_btn">Name store</button>
+                <button class="primary_btn" aria-label="name store">Name store</button>
               </div>
 
               <img
@@ -683,7 +683,7 @@
                   >
                 </p>
 
-                <button class="primary_btn">Set up payment</button>
+                <button class="primary_btn" aria-label="set up payment">Set up payment</button>
               </div>
 
               <img
