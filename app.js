@@ -228,9 +228,20 @@ personalizedGuideEls.forEach((element, index) => {
   });
 
   inputCheck.addEventListener("change", (e) => {
-    if (e.target.checked) {
-      const clickEvent = new Event("click");
-      targetedBtn.dispatchEvent(clickEvent);
+    if (e.target.checked && index !== personalizedGuideEls.length - 1) {
+      personalizedGuideEls[index].classList.remove("expanded_guide");
+      personalizedGuideEls[index].children[1].classList.remove(
+        "expanded_guide_details",
+      );
+      targetedBtn.classList.remove("expanded_guide_title");
+
+      personalizedGuideEls[index + 1].classList.add("expanded_guide");
+      personalizedGuideEls[index + 1].children[1].classList.add(
+        "expanded_guide_details",
+      );
+      personalizedGuideEls[index + 1].children[0].children[1].classList.add(
+        "expanded_guide_title",
+      );
     }
     computeProgress();
   });
