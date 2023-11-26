@@ -724,7 +724,7 @@ progress[value]::-moz-progress-bar {
   align-items: center;
 }
 
-.personalized_guides_inner > div {
+.personalized_guides_inner > button {
   cursor: pointer;
   margin-left: 0.5rem;
   color: var(--font-dark, #303030);
@@ -794,6 +794,10 @@ progress[value]::-moz-progress-bar {
   visibility: visible;
   height: 110px;
   opacity: 1;
+}
+
+.guideMenuBtnEl {
+  font-weight: 400;
 }
 
 .expanded_guide_title {

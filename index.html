@@ -58,12 +58,12 @@
       </div>
       <div class="others">
         <button
+          id="alertEl"
+          class="notification"
           aria-label="notifications"
           aria-haspopup="true"
           aria-expanded="false"
           aria-controls="alertDropdownEl"
-          id="alertEl"
-          class="notification"
         >
           <svg
             width="20"
@@ -155,8 +155,14 @@
           id="acctEl"
           class="account"
         >
-          Davii Collections
-          <span aria-label="user account acronym" class="badge" aria-label="DC">DC</span>
+          <p aria-label="Davii Collections">Davii Collections</p>
+          <h6
+            aria-roledescription="user account acronym"
+            class="badge"
+            aria-label="DC"
+          >
+            DC
+          </h6>
         </button>
 
         <div
@@ -174,7 +180,7 @@
             >
               <div class="acct_dropdown_top_left">
                 <h6 class="badge">DC</h6>
-                Davii Collections
+                <p>Davii Collections</p>
               </div>
 
               <svg
@@ -372,7 +378,13 @@
         <div class="setup_guide_top">
           <div id="setupGuideTogglerEl" class="setup_guide_toggler">
             <h1>Setup guide</h1>
-            <button aria-label="close and open all guides">
+            <button
+              id="setupTogglerBtn"
+              aria-label="close and open all guides"
+              aria-haspopup="true"
+              aria-expanded="true"
+              aria-controls="setupGuideBottomEl"
+            >
               <svg
                 id="setupGuideArrowEl"
                 class="setupGuide_arrow"
@@ -401,8 +413,13 @@
           </div>
         </div>
 
-        <div id="setupGuideBottomEl" class="setup_guide_bottom">
-          <div class="personalized_guides expanded_guide">
+        <div
+          role="menu"
+          id="setupGuideBottomEl"
+          class="setup_guide_bottom"
+          aria-labelledby="setupTogglerBtn"
+        >
+          <div role="menuitem" class="personalized_guides expanded_guide">
             <div class="personalized_guides_inner">
               <div class="check_wrapper">
                 <label class="check_container">
@@ -431,29 +448,43 @@
                   </div>
                 </label>
               </div>
-              <div
+
+              <button
                 id="onlineStoreEl"
+                class="guideMenuBtnEl"
+                aria-label="customize your online store"
+                aria-haspopup="true"
+                aria-expanded="true"
+                aria-controls="customizeStoreEl"
+                aria-describedby="customizeDesc"
               >
                 Customize your online store
-              </div>
+              </button>
             </div>
 
             <div
+              role="menu"
               id="customizeStoreEl"
               class="personalized_guides_details expanded_guide_details"
+              aria-labelledby="onlineStoreEl"
             >
               <div class="personalized_guides_details_info">
-                <p>
+                <p id="customizeDesc">
                   Choose a theme and add your logo, colors, and images to
                   reflect your brand.
                   <a
+                    role="menuitem"
                     href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes"
                     target="_blank"
                     >Learn more</a
                   >
                 </p>
 
-                <button class="primary_btn" aria-label="customize theme">
+                <button
+                  role="menuitem"
+                  class="primary_btn"
+                  aria-label="customize theme"
+                >
                   Customize theme
                 </button>
               </div>
@@ -465,7 +496,7 @@
             </div>
           </div>
 
-          <div class="personalized_guides">
+          <div role="menuitem" class="personalized_guides">
             <div class="personalized_guides_inner">
               <div class="check_wrapper">
                 <label class="check_container">
@@ -494,15 +525,31 @@
                   </div>
                 </label>
               </div>
-              <div>Add your first product</div>
+              <button
+                id="firstProductEl"
+                class="guideMenuBtnEl"
+                aria-label="Add your first product"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="addFirstProductMenu"
+                aria-describedby="addProductDesc"
+              >
+                Add your first product
+              </button>
             </div>
 
-            <div class="personalized_guides_details">
+            <div
+              id="addFirstProductMenu"
+              class="personalized_guides_details"
+              role="menu"
+              aria-labelledby="firstProductEl"
+            >
               <div class="personalized_guides_details_info">
-                <p>
+                <p id="addProductDesc">
                   Write a description, add photos, and set pricing for the
                   products you plan to sell.
                   <a
+                    role="menuitem"
                     href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes"
                     target="_blank"
                     >Learn more</a
@@ -510,13 +557,18 @@
                 </p>
 
                 <button
+                  role="menuitem"
                   class="primary_btn"
                   style="margin-right: 3px"
                   aria-label="add product"
                 >
                   Add product
                 </button>
-                <button class="tertiary_btn" aria-label="import product">
+                <button
+                  role="menuitem"
+                  class="tertiary_btn"
+                  aria-label="import product"
+                >
                   Import product
                 </button>
               </div>
@@ -528,7 +580,7 @@
             </div>
           </div>
 
-          <div class="personalized_guides">
+          <div role="menuitem" class="personalized_guides">
             <div class="personalized_guides_inner">
               <div class="check_wrapper">
                 <label class="check_container">
@@ -557,22 +609,42 @@
                   </div>
                 </label>
               </div>
-              <div>Add a custom domain</div>
+              <button
+                id="customDomainEl"
+                class="guideMenuBtnEl"
+                aria-label="Add a acustom domain"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="addCutsomDomainMenu"
+                aria-describedby="addCustomDoaminDesc"
+              >
+                Add a custom domain
+              </button>
             </div>
 
-            <div class="personalized_guides_details">
+            <div
+              id="addCutsomDomainMenu"
+              class="personalized_guides_details"
+              role="menu"
+              aria-labelledby="customDomainEl"
+            >
               <div class="personalized_guides_details_info">
-                <p>
+                <p id="addCustomDoaminDesc">
                   Your current domain is 222219.myshopify.com but you can add a
                   custom domain to help customers find your online store.
                   <a
+                    role="menuitem"
                     href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes"
                     target="_blank"
                     >Learn more</a
                   >
                 </p>
 
-                <button class="primary_btn" aria-label="add domain">
+                <button
+                  role="menuitem"
+                  class="primary_btn"
+                  aria-label="add domain"
+                >
                   Add domain
                 </button>
               </div>
@@ -584,7 +656,7 @@
             </div>
           </div>
 
-          <div class="personalized_guides">
+          <div role="menuitem" class="personalized_guides">
             <div class="personalized_guides_inner">
               <div class="check_wrapper">
                 <label class="check_container">
@@ -613,22 +685,43 @@
                   </div>
                 </label>
               </div>
-              <div>Name your store</div>
+
+              <button
+                id="nameYourStoreEl"
+                class="guideMenuBtnEl"
+                aria-label="name your store"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="nameYourStoreMenu"
+                aria-describedby="nameYourStoreDesc"
+              >
+                Name your store
+              </button>
             </div>
 
-            <div class="personalized_guides_details">
+            <div
+              id="nameYourStoreMenu"
+              class="personalized_guides_details"
+              role="menu"
+              aria-labelledby="nameYourStoreEl"
+            >
               <div class="personalized_guides_details_info">
-                <p>
+                <p id="nameYourStoreDesc">
                   Your temporary store name is currently Davii collections. The
                   store name appears in your admin and your online store.
                   <a
+                    role="menuitem"
                     href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes"
                     target="_blank"
                     >Learn more</a
                   >
                 </p>
 
-                <button class="primary_btn" aria-label="name store">
+                <button
+                  class="primary_btn"
+                  role="menuitem"
+                  aria-label="name store"
+                >
                   Name store
                 </button>
               </div>
@@ -640,7 +733,7 @@
             </div>
           </div>
 
-          <div class="personalized_guides">
+          <div role="menuitem" class="personalized_guides">
             <div class="personalized_guides_inner">
               <div class="check_wrapper">
                 <label class="check_container">
@@ -669,23 +762,43 @@
                   </div>
                 </label>
               </div>
-              <div>Set up a payment provider</div>
+              <button
+                id="paymentProviderEl"
+                class="guideMenuBtnEl"
+                aria-label="set up a payment provider"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="paymentProviderMenu"
+                aria-describedby="paymentProviderDesc"
+              >
+                Set up a payment provider
+              </button>
             </div>
 
-            <div class="personalized_guides_details">
+            <div
+              id="paymentProviderMenu"
+              class="personalized_guides_details"
+              role="menu"
+              aria-labelledby="paymentProviderEl"
+            >
               <div class="personalized_guides_details_info">
-                <p>
+                <p id="paymentProviderDesc">
                   Choose a payment provider to start accepting payments. You’ll
                   need to create an account with the payment provider and set it
                   up with your Shopify store.
                   <a
+                    role="menuitem"
                     href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes"
                     target="_blank"
                     >Learn more</a
                   >
                 </p>
 
-                <button class="primary_btn" aria-label="set up payment">
+                <button
+                  class="primary_btn"
+                  aria-label="set up payment"
+                  role="menuitem"
+                >
                   Set up payment
                 </button>
               </div>

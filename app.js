@@ -11,14 +11,16 @@ const toastDesktopCloseEl = document.getElementById("toastDesktopCloseEl");
 const setupGuideTogglerEl = document.getElementById("setupGuideTogglerEl");
 const setupGuideBottomEl = document.getElementById("setupGuideBottomEl");
 const setupGuideArrowEl = document.getElementById("setupGuideArrowEl");
+const setupGuideTogglerBtn = document.getElementById("setupTogglerBtn");
 const personalizedGuideEls = document.querySelectorAll(".personalized_guides");
+const personalizedGuideDetailsEls = document.querySelectorAll(
+  ".personalized_guides_details",
+);
 const progressCountEl = document.getElementById("progressCountEl");
 const inputCheckEls = document.querySelectorAll(".input_check");
 const progressEl = document.getElementById("progressEl");
 const liveElAnnouncer = document.getElementById("liveElAnnouncer");
 const setupWrapperEl = document.querySelector("[role='contentinfo']");
-
-console.log(dropdownElMenuItems);
 
 // function to get number of completed setup guides
 const getCompletedGuides = () => {
@@ -64,46 +66,25 @@ acctEl.addEventListener("click", (e) => {
   }
 });
 
-// handlehandleDropdownMenuItemKeypress function
-function handleDropdownMenuItemKeypress(event, menuItemIndex) {
+// function to handle all menuitems keypress
+function handleMenuItemKeypress(event, allItems, menuItemIndex) {
   const key = event.key;
-  const isLast = dropdownElMenuItems.length - 1 === menuItemIndex;
+  const isLast = allItems.length - 1 === menuItemIndex;
   const isFirst = menuItemIndex === 0;
-  const nextMenuItem = dropdownElMenuItems.item(menuItemIndex + 1);
-  const prevMenuItem = dropdownElMenuItems.item(menuItemIndex - 1);
+  const nextMenuItem = allItems.item(menuItemIndex + 1);
+  const prevMenuItem = allItems.item(menuItemIndex - 1);
+
+  console.log(key);
 
   if (key === "ArrowDown" || key === "ArrowLeft") {
     if (isLast) {
-      dropdownElMenuItems.item(0).focus();
+      allItems.item(0).focus();
       return;
     }
     nextMenuItem.focus();
   } else if (key === "ArrowUp" || key === "ArrowRight") {
     if (isFirst) {
-      dropdownElMenuItems.item(dropdownElMenuItems.length - 1).focus();
-      return;
-    }
-    prevMenuItem.focus();
-  }
-}
-
-// handlehandleDropdownMenuItemKeypress function
-function handleAlertMenuItemKeypress(event, menuItemIndex) {
-  const key = event.key;
-  const isLast = alertElMenuItems.length - 1 === menuItemIndex;
-  const isFirst = menuItemIndex === 0;
-  const nextMenuItem = alertElMenuItems.item(menuItemIndex + 1);
-  const prevMenuItem = alertElMenuItems.item(menuItemIndex - 1);
-
-  if (key === "ArrowDown" || key === "ArrowLeft") {
-    if (isLast) {
-      alertElMenuItems.item(0).focus();
-      return;
-    }
-    nextMenuItem.focus();
-  } else if (key === "ArrowUp" || key === "ArrowRight") {
-    if (isFirst) {
-      alertElMenuItems.item(alertElMenuItems.length - 1).focus();
+      allItems.item(allItems.length - 1).focus();
       return;
     }
     prevMenuItem.focus();
@@ -120,7 +101,7 @@ dropdownEl.addEventListener("keyup", (event) => {
 
 dropdownElMenuItems.forEach((dropdownMenuItem, idx) => {
   dropdownMenuItem.addEventListener("keyup", function (event) {
-    handleDropdownMenuItemKeypress(event, idx);
+    handleMenuItemKeypress(event, dropdownElMenuItems, idx);
   });
 });
 
@@ -149,7 +130,7 @@ alertDropdownEl.addEventListener("keyup", (event) => {
 
 alertElMenuItems.forEach((alertElMenuItem, idx) => {
   alertElMenuItem.addEventListener("keyup", function (event) {
-    handleAlertMenuItemKeypress(event, idx);
+    handleMenuItemKeypress(event, alertElMenuItems, idx);
   });
 });
 
@@ -173,8 +154,6 @@ setupGuideTogglerEl.addEventListener("click", () => {
   const setupGuideBtmHeight =
     window.getComputedStyle(setupGuideBottomEl).height;
 
-  console.log(setupGuideBottomEl.clientHeight);
-
   if (setupGuideBtmHeight === "350px") {
     setupGuideBottomEl.style.height = "0px";
     setupGuideBottomEl.style.visibility = "hidden";
@@ -192,23 +171,48 @@ setupGuideTogglerEl.addEventListener("click", () => {
   }
 });
 
+// event listeners for alert popup
+setupGuideBottomEl.addEventListener("keyup", function (event) {
+  if (event.key === "Escape") {
+    const clickEvent = new Event("click");
+    setupGuideTogglerEl.dispatchEvent(clickEvent);
+    setupGuideTogglerBtn.focus();
+  }
+});
+
+function handleExpandedGuideDetails(idx) {
+  const elementMenuItems = personalizedGuideDetailsEls
+    .item(idx)
+    .querySelectorAll("[role='menuitem']");
+
+  console.log(elementMenuItems, personalizedGuideDetailsEls.item(idx));
+
+  personalizedGuideDetailsEls
+    .item(idx)
+    .addEventListener("keyup", function (event) {
+      handleMenuItemKeypress(event, elementMenuItems, idx);
+    });
+}
+
 personalizedGuideEls.forEach((element, index) => {
-  const targetPEl = element.children[0].children[1];
+  const targetedBtn = element.querySelector(".guideMenuBtnEl");
   const inputCheck = element.children[0].children[0].children[0].children[0];
 
-  targetPEl.addEventListener("click", () => {
+  targetedBtn.addEventListener("click", () => {
     const isOtherExpanded = [].indexOf.call(
       personalizedGuideEls,
       document.querySelector(".expanded_guide"),
     );
-    const isThisExpanded = targetPEl.classList.contains("expanded_guide_title");
+    const isThisExpanded = targetedBtn.classList.contains(
+      "expanded_guide_title",
+    );
 
     if (isThisExpanded) {
       personalizedGuideEls[index].classList.remove("expanded_guide");
       personalizedGuideEls[index].children[1].classList.remove(
         "expanded_guide_details",
       );
-      targetPEl.classList.remove("expanded_guide_title");
+      targetedBtn.classList.remove("expanded_guide_title");
     }
     personalizedGuideEls[isOtherExpanded].classList.remove("expanded_guide");
     personalizedGuideEls[isOtherExpanded].children[1].classList.remove(
@@ -218,7 +222,7 @@ personalizedGuideEls.forEach((element, index) => {
       isOtherExpanded
     ].children[0].children[1].classList.remove("expanded_guide_title");
 
-    targetPEl.classList.add("expanded_guide_title");
+    targetedBtn.classList.add("expanded_guide_title");
     element.classList.add("expanded_guide");
     element.children[1].classList.add("expanded_guide_details");
   });
@@ -226,7 +230,7 @@ personalizedGuideEls.forEach((element, index) => {
   inputCheck.addEventListener("change", (e) => {
     if (e.target.checked) {
       const clickEvent = new Event("click");
-      targetPEl.dispatchEvent(clickEvent);
+      targetedBtn.dispatchEvent(clickEvent);
     }
     computeProgress();
   });
