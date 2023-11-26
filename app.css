@@ -636,10 +636,12 @@ progress[value]::-moz-progress-bar {
   border: 2px dashed var();
 }
 
-.input_check {
+.input_check,
+.minput_check {
   display: none;
 }
 
+[role="checkbox"],
 .checkmark {
   cursor: pointer;
   width: 100%;
@@ -662,11 +664,13 @@ progress[value]::-moz-progress-bar {
   background-color: var(--states-pressed);
 }
 
+[aria-checked="true"],
 .input_check:checked ~ .checkmark {
   border: none;
   animation: myCheckAnimation 0.75s forwards;
 }
 
+[aria-checked="true"] .svg_check path,
 .input_check:checked ~ .checkmark .svg_check path {
   fill: var(--white);
 }

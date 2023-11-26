@@ -21,6 +21,7 @@ const inputCheckEls = document.querySelectorAll(".input_check");
 const progressEl = document.getElementById("progressEl");
 const liveElAnnouncer = document.getElementById("liveElAnnouncer");
 const setupWrapperEl = document.querySelector("[role='contentinfo']");
+const allCheckmarkEls = document.querySelectorAll(".checkmark");
 
 // function to get number of completed setup guides
 const getCompletedGuides = () => {
@@ -73,8 +74,6 @@ function handleMenuItemKeypress(event, allItems, menuItemIndex) {
   const isFirst = menuItemIndex === 0;
   const nextMenuItem = allItems.item(menuItemIndex + 1);
   const prevMenuItem = allItems.item(menuItemIndex - 1);
-
-  console.log(key);
 
   if (key === "ArrowDown" || key === "ArrowLeft") {
     if (isLast) {
@@ -185,8 +184,6 @@ function handleExpandedGuideDetails(idx) {
     .item(idx)
     .querySelectorAll("[role='menuitem']");
 
-  console.log(elementMenuItems, personalizedGuideDetailsEls.item(idx));
-
   personalizedGuideDetailsEls
     .item(idx)
     .addEventListener("keyup", function (event) {
@@ -197,6 +194,7 @@ function handleExpandedGuideDetails(idx) {
 personalizedGuideEls.forEach((element, index) => {
   const targetedBtn = element.querySelector(".guideMenuBtnEl");
   const inputCheck = element.children[0].children[0].children[0].children[0];
+  const checkmarkEl = element.querySelector(".checkmark");
 
   targetedBtn.addEventListener("click", () => {
     const isOtherExpanded = [].indexOf.call(
@@ -242,6 +240,35 @@ personalizedGuideEls.forEach((element, index) => {
       personalizedGuideEls[index + 1].children[0].children[1].classList.add(
         "expanded_guide_title",
       );
+    }
+    computeProgress();
+  });
+
+  checkmarkEl.addEventListener("keyup", (event) => {
+    if (event.code === "Space") {
+      if (!inputCheck.checked) {
+        inputCheck.checked = true;
+        checkmarkEl.setAttribute("aria-checked", "true");
+        if (index !== personalizedGuideEls.length - 1) {
+          personalizedGuideEls[index].classList.remove("expanded_guide");
+          personalizedGuideEls[index].children[1].classList.remove(
+            "expanded_guide_details",
+          );
+          targetedBtn.classList.remove("expanded_guide_title");
+
+          personalizedGuideEls[index + 1].classList.add("expanded_guide");
+          personalizedGuideEls[index + 1].children[1].classList.add(
+            "expanded_guide_details",
+          );
+          personalizedGuideEls[index + 1].children[0].children[1].classList.add(
+            "expanded_guide_title",
+          );
+        }
+        allCheckmarkEls.item(index + 1).focus();
+      } else {
+        inputCheck.checked = false;
+        checkmarkEl.setAttribute("aria-checked", "false");
+      }
     }
     computeProgress();
   });
