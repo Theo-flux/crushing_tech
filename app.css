@@ -724,7 +724,7 @@ progress[value]::-moz-progress-bar {
   align-items: center;
 }
 
-.personalized_guides_inner div {
+.personalized_guides_inner > div {
   cursor: pointer;
   margin-left: 0.5rem;
   color: var(--font-dark, #303030);
